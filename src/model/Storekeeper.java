@@ -6,8 +6,8 @@ public class Storekeeper extends Employee {
         this.options = new Option[] {};
     }
 
-    public Storekeeper(int id, String firstName, String lastName, String email, String phoneNumber, String address, double salary, String password) {
-        this.id = id;
+    public Storekeeper(int Id, String firstName, String lastName, String email, String phoneNumber, String address, double salary, String password) {
+        this.Id = Id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -16,5 +16,11 @@ public class Storekeeper extends Employee {
         this.salary = salary;
         this.password = password;
         this.options = new Option[] {};
+    }
+
+    
+    @Override
+    public int getDepartment() {
+        return 2;
     }
 }

@@ -6,8 +6,8 @@ public class Cashier extends Employee {
         this.options = new Option[] {};
     }
 
-    public Cashier(int id, String firstName, String lastName, String email, String phoneNumber, String address, double salary, String password) {
-        this.id = id;
+    public Cashier(int Id, String firstName, String lastName, String email, String phoneNumber, String address, double salary, String password) {
+        this.Id = Id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -16,5 +16,10 @@ public class Cashier extends Employee {
         this.salary = salary;
         this.password = password;
         this.options = new Option[] {};
+    }
+
+    @Override
+    public int getDepartment() {
+        return 1;
     }
 }

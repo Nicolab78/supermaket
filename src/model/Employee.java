@@ -1,8 +1,10 @@
 package model;
 
+import java.util.Scanner;
+
 public abstract class Employee {
 
-    protected int id;
+    protected int Id;
     protected String firstName;
     protected String lastName;
     protected String email;
@@ -17,25 +19,26 @@ public abstract class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String firstName, String lastName, String email, String phoneNumber, String address, double salary, String password) {
-        this.id = id;
+    public Employee(int Id, String firstName, String lastName, String email, String phoneNumber, String address, double salary, String Department, String password) {
+        this.Id = Id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.salary = salary;
+        this.Department = Department;
         this.password = password;
 
         this.options = new Option[] {};
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public String getFirstName() {
@@ -101,6 +104,22 @@ public abstract class Employee {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+    public abstract int getDepartment();
+
+
+    public void showList(Scanner s, Database database) {
+		System.out.println("-----------------------");
+		for (int i=1;i<=options.length;i++) {
+			System.out.println(i+". "+options[i-1].getOption());
+		}
+		System.out.println("-----------------------");
+		
+		int selected = s.nextInt();
+		options[selected-1].oper(this, s, database);
+		showList(s, database);
+	}
 
     
 
