@@ -6,11 +6,15 @@ import model.Database;
 import model.Employee;
 import model.Option;
 
-public class CreateEmployee implements Option{
+public class CreateEmployee{
 
-    @Override
-    public void oper(Employee user, Scanner s, Database database) {
-        
-    }
+   public void CreateEmployee(Employee e, Database database){
+
+        String insert = "INSERT INTO employee (first_name, last_name, email, phone_number, address, salary, password) VALUES ('"
+                + e.getFirstName() + "', '" + e.getLastName() + "', '" + e.getEmail() + "', '"
+                + e.getPhoneNumber() + "', '" + e.getAddress() + "', " + e.getSalary() + ", '"
+                + e.getPassword() + "')";
+
+   }
 
 }
